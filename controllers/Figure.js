@@ -1,4 +1,4 @@
-const Product = require("../models/Product")
+const Figure = require("../models/Figure")
 
 exports.getProduct1 = async (req, res) => {
 	const product = await Product1.find().populate("folder")

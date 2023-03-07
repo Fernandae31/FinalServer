@@ -1,20 +1,30 @@
 express = require('express');
-const router = express.Router();
 const Figure = require('../models/Figure');
+const router = express.Router();
 
-// POST /api/figures
-router.post('/', async (req, res) => {
+
+router.post('/create', async (req, res) => {
   try {
-    // Create a new figure instance from the request body
-    const figure = new Figure(req.body);
-    // Save the figure to the database
-    await figure.save();
-    // Send the saved figure back as the response
-    res.json(figure);
+    const {name, img, price, description} = req.body
+    const newitem = await Figure.create( {name, img, price, description})
+
+   
+    res.json(newitem);
   } catch (err) {
     console.error(err);
     res.status(500).send('Server Error');
   }
+
 });
+
+router.get('/figures', async (req, res) => {
+  try {
+    const newitem = await Figure.find( )
+    res.json(newitem);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
+})
 
 module.exports = router;

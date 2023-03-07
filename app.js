@@ -20,9 +20,9 @@ const ProductCollectionRouter = require("./routes/ProductCollection.routes");
 const authRouter = require('./routes/auth.routes');
 
 
-router.use("/figures", FigureRouter);
-router.use("/products", ProductCollectionRouter);
-router.use('/auth', authRouter);
+app.use("/figures", FigureRouter);
+app.use("/products", ProductCollectionRouter);
+app.use('/auth', authRouter);
 
 
 

@@ -22,6 +22,6 @@ const FigureSchema = new Schema(
 
 );
 
-const Figure = model("Figure", FiguresSchema)
+const Figure = model("Figure", FigureSchema)
 
 module.exports= Figure;
