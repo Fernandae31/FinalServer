@@ -51,14 +51,13 @@ router.put('/edit/:id', async (req, res) => {
   res.status(500).send('Server Error');
   }
 });
-router.delete('/delete', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
   try {
  
-   const  {name, img, price, description} = req.body
-   
-   const newitem = await ProductCollection.delete( {name, img, price, description})
-  
-   res.json(newitem);
+    const {id} = req.params
+   const deleteitem = await ProductCollection.findByIdAndRemove(id)
+    
+   res.json(deleteitem);
   } catch (err) {
   console.error(err);
   res.status(500).send('Server Error');
